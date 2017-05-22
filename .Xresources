@@ -1,0 +1,5 @@
+XTerm*foreground: rgb:ff/ff/ff
+XTerm*background: rgb:00/00/00
+xterm*faceName: Liberation Mono:size=10:antialias=true
+xterm*font: 7x13
+xterm*VT100.Translations: #override Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n Ctrl Shift <Key>C: copy-selection(CLIPBOARD)
