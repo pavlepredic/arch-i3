@@ -13,3 +13,11 @@ Config files, scripts and cheat-sheets for arch/i3 system
 
 ### Start a connection on boot
 `sudo systemctl enable netctl@<ssid>`
+
+## Pacman
+
+### Full system upgrade
+`pacman -Syu`
+
+### Install AUR package
+`makepkg -si`
