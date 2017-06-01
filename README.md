@@ -21,3 +21,9 @@ Config files, scripts and cheat-sheets for arch/i3 system
 
 ### Install AUR package
 `makepkg -si`
+
+## Fonts
+
+### Install new font
+`cp font-file.ttf /usr/share/fonts/TTF/`
+`fc-cache`
