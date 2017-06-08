@@ -64,7 +64,7 @@ xset -dpms
 xset s off
 
 # detect external display and disable primary
-if is-external-display-present; then display-toggle; fi
+if list-external-displays; then display-toggle; fi
 
 # start i3 wm
 i3
