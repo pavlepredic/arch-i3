@@ -55,13 +55,16 @@ export SSH_AUTH_SOCK
 xset b off
 
 # set key auto-repeat rate
-xset r rate 300 30
+xset r rate 300 30 
 
 # disavble display power management
 xset -dpms
 
 # disable screen saver
 xset s off
+
+# detect external display and disable primary
+if is-external-display-present; then display-toggle; fi
 
 # start i3 wm
 i3

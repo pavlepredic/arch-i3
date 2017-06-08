@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xrandr | grep -v primary | grep -v disconnected | grep -v "^ " | grep -v "^Screen 0"
+
+
