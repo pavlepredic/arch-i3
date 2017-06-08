@@ -55,7 +55,7 @@ export SSH_AUTH_SOCK
 xset b off
 
 # set key auto-repeat rate
-xset r rate 300 30 
+xset r rate 300 30
 
 # disavble display power management
 xset -dpms
