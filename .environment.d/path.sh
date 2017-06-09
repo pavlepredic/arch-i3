@@ -1,1 +1,1 @@
-export PATH="~/scripts:/opt/bin:${PATH}"
+export PATH="/opt/scripts:/opt/bin:${PATH}"
