@@ -41,6 +41,7 @@ powertop
 python-ansible
 python2-pip
 qt5ct
+rsync
 sox
 sudo
 thunderbird
