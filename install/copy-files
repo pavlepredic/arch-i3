@@ -1,3 +1,4 @@
 rsync -av fs/~ ~
 rsync -av fs/etc /etc
 rsync -av fs/opt /opt
+rsync -av fs/usr /usr
