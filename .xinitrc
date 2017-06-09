@@ -63,8 +63,8 @@ xset -dpms
 # disable screen saver
 xset s off
 
-# detect external display and disable primary
-if list-external-displays; then display-toggle; fi
+# turn numlock on
+numlockx
 
 # start i3 wm
 i3
