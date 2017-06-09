@@ -1,0 +1,1 @@
+pacman -Qeq | grep -vx "$(pacman -Qmq)" | grep -vx "$(pacman -Qqg base)"
