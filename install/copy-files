@@ -1,4 +1,8 @@
-rsync -av fs/~/ ~
-rsync -av fs/etc/ /etc
-rsync -av fs/opt/ /opt
-rsync -av fs/usr/ /usr
+#!/bin/bash
+
+set -e
+
+sudo rsync -av fs/~/ ~
+sudo rsync -av fs/etc/ /etc
+sudo rsync -av fs/opt/ /opt
+sudo rsync -av fs/usr/ /usr

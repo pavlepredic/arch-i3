@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+# official
+sudo pacman --noconfirm --needed -S $(cat packages/official)
+
+# cower
+git clone https://aur.archlinux.org/cower-git.git
+cd cower-git
+makepkg -sic --noconfirm
+cd ..
+rm -rf cower-git
+
+# pacaur
+git clone https://aur.archlinux.org/pacaur.git
+cd pacaur
+makepkg -sic --noconfirm
+cd ..
+rm -rf pacaur
+
+# aur
+env displaybuildfiles=none pacaur --noconfirm --needed -S $(cat packages/aur)
