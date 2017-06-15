@@ -59,4 +59,9 @@ endif
 
 
 " don't enter visual mode on mouse select
-set mouse-=a 
+set mouse-=a
+
+" convert tabs to spaces
+set expandtab
+set tabstop=4
+set shiftwidth=4
