@@ -57,6 +57,7 @@ if has('syntax') && has('eval')
   packadd matchit
 endif
 
+set nocompatible
 
 " don't enter visual mode on mouse select
 set mouse-=a
@@ -65,3 +66,8 @@ set mouse-=a
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+" keep all meta files in /tmp
+set directory=/tmp
+set undodir=/tmp
+set backupdir=/tmp
