@@ -1,1 +1,7 @@
 #!/bin/bash
+
+if test -d ~/.config/i3/startup.d; then
+    for entry in ~/.config/i3/startup.d/*; do
+        . "$entry"
+    done
+fi
