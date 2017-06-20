@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+OP=$1
+KEY=$2
+VALUE=$3
+DICT=$ALZHEIMER_DICT
+
+if [ -z "$DICT" ]; then
+    DICT=~/.alzheimer
+fi
+
+if [ ! -f "$DICT" ]; then
+    touch $DICT;
+fi
+
+function usage(){
+    echo USAGE:
+    echo "alzheimer get <identifier>"
+    echo "alzheimer put <identifier> <value>" 
+}
+
+if [ $OP = "get" ]; then
+    LINE=$(grep $KEY $DICT)
+    if [ -z "$LINE" ]; then
+       echo "Remind me what that was";
+       exit 0;
+    fi;
+
+    MATCH=$(grep $KEY $DICT | sed 's/.*VALUE://')
+    echo $MATCH;
+    echo $MATCH | tr -d "\n" | xclip -selection clipboard
+
+elif [ $OP = "put" ]; then
+    if [ -z "$VALUE" ]; then
+        usage;
+        exit 1;
+    fi
+    echo "KEY:$KEY VALUE:$VALUE" >> $DICT
+else 
+    usage;
+    exit 1;
+fi

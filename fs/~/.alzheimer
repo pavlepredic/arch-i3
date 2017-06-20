@@ -1,0 +1,1 @@
+KEY:git-delete-merged-branches VALUE:git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d

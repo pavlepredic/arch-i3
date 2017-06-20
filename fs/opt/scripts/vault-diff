@@ -1,0 +1,21 @@
+#!/bin/bash
+
+VPASS=$1
+FILE=$2
+
+function usage() {
+    echo Usage:
+    echo vault-diff relative/path/to/.vpass relative/path/to/vault/file.enc
+}
+
+if [ $(git rev-parse --show-toplevel) != $(pwd) ]; then
+    echo "You must run this command from the root git directory";
+    exit 1;
+fi;
+
+if [ -z "$VPASS" -o -z "$FILE" -o ! -f "$VPASS" -o ! -f "$FILE" ]; then
+    usage;
+    exit 2;
+fi
+
+diff <(ansible-vault --vault-password-file=$VPASS view "$FILE") <(ansible-vault --vault-password-file=$VPASS view <(git show "master:$FILE"))
