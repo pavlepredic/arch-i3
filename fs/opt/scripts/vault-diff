@@ -18,4 +18,4 @@ if [ -z "$VPASS" -o -z "$FILE" -o ! -f "$VPASS" -o ! -f "$FILE" ]; then
     exit 2;
 fi
 
-diff <(ansible-vault --vault-password-file=$VPASS view "$FILE") <(ansible-vault --vault-password-file=$VPASS view <(git show "master:$FILE"))
+diff <(ansible-vault --vault-password-file=$VPASS view <(git show "master:$FILE")) <(ansible-vault --vault-password-file=$VPASS view "$FILE")
