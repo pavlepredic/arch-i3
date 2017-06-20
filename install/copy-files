@@ -2,7 +2,7 @@
 
 set -e
 
-sudo rsync -av fs/~/ ~
-sudo rsync -av --no-owner --no-group fs/etc/ /etc
-sudo rsync -av --no-owner --no-group fs/opt/ /opt
-sudo rsync -av --no-owner --no-group fs/usr/ /usr
+sudo rsync -auv fs/~/ ~
+sudo rsync -auv --no-owner --no-group fs/etc/ /etc
+sudo rsync -auv --no-owner --no-group fs/opt/ /opt
+sudo rsync -auv --no-owner --no-group fs/usr/ /usr
