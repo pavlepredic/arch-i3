@@ -40,7 +40,7 @@ bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -152,26 +152,28 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command /opt/scripts/custom-i3status
-	tray_output none
+    status_command /opt/scripts/custom-i3status
+    tray_output none
 }
 
-bindsym $mod+Shift+x exec i3lock -c 000000
-bindsym $mod+Shift+BackSpace exec sudo systemctl poweroff -i
-bindsym $mod+Shift+Mod1+BackSpace exec sudo systemctl reboot -i
+# Power controls
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 000000
+bindsym $mod+Shift+BackSpace exec --no-startup-id sudo systemctl poweroff -i
+bindsym $mod+Shift+Mod1+BackSpace exec --no-startup-id sudo systemctl reboot -i
 
 focus_follows_mouse no
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer set Master 1dB+
-bindsym XF86AudioLowerVolume exec amixer set Master 1dB-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 1dB+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 1dB-
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
 # Display toggle
-bindsym XF86Display exec /opt/scripts/display-toggle
+bindsym XF86Display exec --no-startup-id /opt/scripts/display-toggle
 
-exec ~/.config/i3/startup
+# Startup scripts
+exec --no-startup-id ~/.config/i3/startup

@@ -2,6 +2,8 @@
 
 if test -d ~/.config/i3/startup.d; then
     for entry in ~/.config/i3/startup.d/*; do
-        . "$entry"
+        logger "[i3 startup] loading ${entry##*/}";
+        . "$entry";
+        logger "[i3 startup] loaded ${entry##*/}";
     done
 fi
