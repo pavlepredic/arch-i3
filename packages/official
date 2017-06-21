@@ -11,6 +11,7 @@ dmenu
 docker
 docker-compose
 dosfstools
+exfat-utils
 fakeroot
 firefox
 flex
@@ -35,6 +36,7 @@ meld
 mlocate
 mysql-workbench
 ncmpc
+noto-fonts
 ntfs-3g
 numlockx
 openssh
@@ -45,6 +47,7 @@ powertop
 python-ansible
 python2-netaddr
 python2-pip
+python2-pyjwt
 qt5ct
 redis
 rsync
@@ -58,6 +61,7 @@ vim
 vnstat
 whois
 wpa_supplicant
+xclip
 xf86-input-synaptics
 xf86-video-intel
 xorg-iceauth
