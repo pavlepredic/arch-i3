@@ -164,9 +164,9 @@ bindsym $mod+Shift+Mod1+BackSpace exec --no-startup-id sudo systemctl reboot -i
 focus_follows_mouse no
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 1dB+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 1dB-
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
