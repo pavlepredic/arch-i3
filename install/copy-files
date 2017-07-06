@@ -2,7 +2,13 @@
 
 set -e
 
-sudo rsync -auv fs/~/ ~
-sudo rsync -auv --no-owner --no-group fs/etc/ /etc
-sudo rsync -auv --no-owner --no-group fs/opt/ /opt
-sudo rsync -auv --no-owner --no-group fs/usr/ /usr
+rsync_args=''
+
+for param in $*; do
+    if [ $param = "--dry-run" ] ; then rsync_args="--dry-run ${rsync_args}"; fi
+done
+
+sudo rsync -auv $rsync_args fs/~/ ~
+sudo rsync -auv $rsync_args --no-owner --no-group fs/etc/ /etc
+sudo rsync -auv $rsync_args --no-owner --no-group fs/opt/ /opt
+sudo rsync -auv $rsync_args --no-owner --no-group fs/usr/ /usr
