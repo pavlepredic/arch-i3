@@ -5,7 +5,10 @@ automake
 binutils
 bison
 calc
+composer
 ctags
+cups
+cups-pdf
 deepin-screenshot
 dmenu
 docker
@@ -20,6 +23,7 @@ gimp
 git
 gnome-keyring
 gsimplecal
+gtk3-print-backends
 i3-wm
 i3lock
 i3status
@@ -36,6 +40,7 @@ meld
 mlocate
 mysql-workbench
 ncmpc
+nmap
 noto-fonts
 ntfs-3g
 numlockx
@@ -45,6 +50,8 @@ patch
 pkg-config
 powertop
 python-ansible
+python-dbus
+python2-dbus
 python2-netaddr
 python2-pip
 python2-pyjwt
@@ -55,9 +62,15 @@ ruby
 sox
 sudo
 thunderbird
+ttf-arphic-uming
+ttf-baekmuk
 ttf-dejavu
+ttf-freefont
 unzip
+vagrant
 vim
+virtualbox
+vlc
 vnstat
 whois
 wpa_supplicant
