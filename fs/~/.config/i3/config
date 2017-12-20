@@ -10,8 +10,6 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $display1 eDP1
-set $display2 DP2-2
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -94,16 +92,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-workspace 1 output $display1 
-workspace 2 output $display1
-workspace 3 output $display1
-workspace 4 output $display1
-workspace 5 output $display1
-workspace 6 output $display1
-workspace 7 output $display1
-workspace 8 output $display1
-workspace 9 output $display1
-workspace 10 output $display2
+workspace 1 output $PRIMARY_DISPLAY 
+workspace 2 output $PRIMARY_DISPLAY
+workspace 3 output $PRIMARY_DISPLAY
+workspace 4 output $PRIMARY_DISPLAY
+workspace 5 output $PRIMARY_DISPLAY
+workspace 6 output $PRIMARY_DISPLAY
+workspace 7 output $PRIMARY_DISPLAY
+workspace 8 output $PRIMARY_DISPLAY
+workspace 9 output $PRIMARY_DISPLAY
+workspace 10 output $SECONDARY_DISPLAY
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -166,7 +164,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command /opt/scripts/custom-i3status 
-        output $display1
+        output primary
 }
 
 # Power controls
