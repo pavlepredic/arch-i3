@@ -1,0 +1,11 @@
+SCROT_ARGS="-u"
+ARGS=$*
+IMG_PATH="/tmp/screenshot.png"
+
+if [ "$ARGS" != "" ]; then
+    SCROT_ARGS=$ARGS;
+fi
+
+scrot $SCROT_ARGS $IMG_PATH
+xclip -selection clipboard -t image/png -i $IMG_PATH
+imv $IMG_PATH
