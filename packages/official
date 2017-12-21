@@ -50,6 +50,7 @@ openvpn
 patch
 pkg-config
 powertop
+pulseaudio
 python-ansible
 python-dbus
 python2-dbus
@@ -70,6 +71,7 @@ unzip
 vagrant
 vim
 virtualbox
+virtualbox-host-modules-arch
 vlc
 vnstat
 whois
