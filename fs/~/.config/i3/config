@@ -92,17 +92,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-workspace 1 output $PRIMARY_DISPLAY 
-workspace 2 output $PRIMARY_DISPLAY
-workspace 3 output $PRIMARY_DISPLAY
-workspace 4 output $PRIMARY_DISPLAY
-workspace 5 output $PRIMARY_DISPLAY
-workspace 6 output $PRIMARY_DISPLAY
-workspace 7 output $PRIMARY_DISPLAY
-workspace 8 output $PRIMARY_DISPLAY
-workspace 9 output $PRIMARY_DISPLAY
-workspace 10 output $SECONDARY_DISPLAY
-
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
