@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ "$KEYBOARD_LAYOUTS" == "" ]; then
+    KEYBOARD_LAYOUTS=us;
+fi
+
+IFS_BAK="$IFS"
+IFS=',' read -r -a LAYOUTS <<< "$KEYBOARD_LAYOUTS"
+IFS="$IFS_BAK"
+LAYOUT_COUNT=${#LAYOUTS[@]}
+LAST_INDEX=`expr $LAYOUT_COUNT - 1`
+CURRENT_LAYOUT=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
+NEW_LAYOUT=${LAYOUTS[0]};
+
+for i in $(seq 0 $LAST_INDEX); do
+    NEXT_INDEX=`expr $i + 1`;
+    if [ $NEXT_INDEX -gt $LAST_INDEX ]; then
+	NEXT_INDEX=0;
+    fi
+    
+    if [ "${LAYOUTS[$i]}" == "$CURRENT_LAYOUT" ]; then
+	NEW_LAYOUT=${LAYOUTS[$NEXT_INDEX]};
+    fi
+done
+
+setxkbmap $NEW_LAYOUT
