@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+    display=$1;
+else
+    display=$(xrandr | grep primary | awk '{ print $1 }')
+fi
+
+if xrandr --listmonitors | grep "$display" > /dev/null; then
+  xrandr --output "$display" --off
+else
+  xrandr --output "$display" --auto
+fi

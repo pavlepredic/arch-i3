@@ -1,0 +1,3 @@
+for display in $(list-external-displays | awk '{print $1}')
+  do toggle-display $display
+done
