@@ -1,7 +1,0 @@
-#!/bin/bash
-
-
-for file in `find templates -type f`; do
-    file=`echo $file | sed 's/templates\///g'`;
-    echo $file
-done

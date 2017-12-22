@@ -1,9 +1,15 @@
 #!/bin/bash
 
-FILE=$1
-if [ "$FILE" == "" ]; then
+TEMPLATE=$1
+if [ "$TEMPLATE" == "" ]; then
     echo "Please provide the path to the template file";
     exit 1;
 fi
 
-cat "$FILE" | envsubst $(list='';for var in $(env); do list=$list"\${$(echo $var | cut -d '=' -f1)}"; done; echo $list)
+DEST=$2
+
+if [ "$DEST" == "" ]; then
+    cat "$TEMPLATE" | envsubst $(list='';for var in $(env); do list=$list"\${$(echo $var | cut -d '=' -f1)}"; done; echo $list)
+else
+    cat "$TEMPLATE" | envsubst $(list='';for var in $(env); do list=$list"\${$(echo $var | cut -d '=' -f1)}"; done; echo $list) > "$DEST"
+fi

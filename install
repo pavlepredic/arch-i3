@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+. .env
+
+# install packages
+sudo pacman --needed -S $(cat packages/official)
+
+# copy files
+sudo rsync -auv $rsync_args fs/~/ ~
+sudo rsync -auv $rsync_args --no-owner --no-group fs/etc/ /etc
+sudo rsync -auv $rsync_args --no-owner --no-group fs/opt/ /opt
+sudo rsync -auv $rsync_args --no-owner --no-group fs/usr/ /usr
+
+# install templates
+for file in `find templates -type f`; do
+    dest=`echo $file | sed 's/templates\///g'`;
+    if [ "${dest:0:1}" = "~" ]; then
+        dest="$HOME/$(echo $dest | sed 's/~\///')"
+    else
+        dest="/$dest";
+    fi
+
+    echo Installing template $file to $dest
+    
+    sudo mkdir -pv `dirname $dest`
+    sudo -E generate-config "$file" "$dest"
+done
