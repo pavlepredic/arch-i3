@@ -27,3 +27,6 @@ for file in `find templates -type f`; do
     sudo mkdir -pv `dirname $dest`
     sudo -E generate-config "$file" "$dest"
 done
+
+# install software not in pacman repos
+/opt/scripts/install-chrome
