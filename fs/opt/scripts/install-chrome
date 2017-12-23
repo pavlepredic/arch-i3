@@ -1,0 +1,38 @@
+#!/bin/bash
+
+TMP_DIR=$(mktemp -d)
+UNINSTALL_ONLY=0
+if [ "$1" == "-u" ]; then
+    UNINSTALL_ONLY=1;
+fi
+
+# Uninstall existing chrome
+echo Uninstalling previous version
+sudo rm -vrf /opt/google 2>/dev/null
+sudo rm -v /usr/share/man/man1/google-chrom* 2>/dev/null
+sudo rm -v /usr/share/applications/google-chrome.desktop 2>/dev/null
+sudo rm -v /usr/bin/google-chrome-stable 2>/dev/null
+echo Done
+
+if [ $UNINSTALL_ONLY == 1 ]; then
+    exit 0;
+fi
+
+# Install chrome
+echo Installing latest chrome version
+pushd `pwd` > /dev/null
+cd "$TMP_DIR"
+
+curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb
+ar x chrome.deb
+tar xf data.tar.xz
+sudo cp -Rv opt/google/ /opt/
+sudo cp -v usr/share/man/man1/google-chrome* /usr/share/man/man1/
+sudo cp -v usr/share/applications/google-chrome.desktop /usr/share/applications/
+sudo ln -sv /opt/google/chrome/google-chrome /usr/bin/google-chrome-stable
+sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+
+popd > /dev/null
+rm -rf "$TMP_DIR"
+
+echo Done
