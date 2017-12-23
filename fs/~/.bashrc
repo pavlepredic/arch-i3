@@ -10,3 +10,5 @@ PS1='[\u@\h \W]\$ '
 
 export PATH="/opt/scripts:/opt/bin:${PATH}"
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+. start-keyring
