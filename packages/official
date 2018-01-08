@@ -22,6 +22,7 @@ gimp
 git
 gnome-keyring
 gsimplecal
+gtk3
 i3-wm
 i3lock
 i3status
@@ -32,10 +33,11 @@ keepassx2
 libid3tag
 libmad
 libreoffice-fresh
-libtool
+linux-headers
 m4
 make
 meld
+mesa
 mlocate
 mysql-workbench
 ncmpc
