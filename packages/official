@@ -7,6 +7,7 @@ bison
 calc
 composer
 ctags
+cups
 deepin-screenshot
 dmenu
 docker
@@ -34,6 +35,7 @@ libid3tag
 libmad
 libreoffice-fresh
 linux-headers
+lsof
 m4
 make
 meld
@@ -66,7 +68,9 @@ redis
 rsync
 ruby
 scrot
+smbclient
 sox
+sshfs
 sudo
 ttf-arphic-uming
 ttf-baekmuk

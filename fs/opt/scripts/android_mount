@@ -1,0 +1,19 @@
+IP=$1
+MOUNTPOINT=$2
+USER=`whoami`
+
+if [ "$IP" == "" ]; then
+    echo Missing IP address
+    exit
+fi
+
+if [ "$MOUNTPOINT" == "" ]; then
+    MOUNTPOINT=/mnt/android
+fi
+
+if [ ! -d $MOUNTPOINT ]; then
+    sudo mkdir -p $MOUNTPOINT
+    sudo chown $USER:$USER $MOUNTPOINT
+fi
+
+sshfs $IP:/sdcard/ $MOUNTPOINT -p 2222 -o idmap=user
