@@ -1,0 +1,19 @@
+#!/bin/bash
+
+NAME=$1
+EXECUTABLE=$2
+USER=`whoami`
+
+if [ "$NAME" == "" -o "$PATH" == "" ]; then
+    echo Please provide the name and path of the executable;
+    exit 1;
+fi
+
+DESKTOP_FILE="/usr/share/applications/$NAME.desktop"
+sudo touch $DESKTOP_FILE
+sudo chown $USER:$USER $DESKTOP_FILE
+
+echo [Desktop Entry] >> $DESKTOP_FILE
+echo Type=Application >> $DESKTOP_FILE
+echo Name=$NAME >> $DESKTOP_FILE
+echo Exec=$EXECUTABLE >> $DESKTOP_FILE
