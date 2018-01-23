@@ -17,6 +17,7 @@ dvd+rw-tools
 exfat-utils
 fakeroot
 firefox
+flashplugin
 flex
 gcc
 gimp
@@ -41,6 +42,8 @@ make
 meld
 mesa
 mlocate
+mpc
+mpd
 mysql-workbench
 ncmpc
 nmap
@@ -68,6 +71,7 @@ redis
 rsync
 ruby
 scrot
+simplescreenrecorder
 smbclient
 sox
 sshfs
