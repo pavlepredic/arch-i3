@@ -4,29 +4,45 @@ set -e
 
 . .env
 
-# install packages
-sudo pacman --needed -S $(cat packages/official)
+TARGET=$1
 
-# copy files
-sudo rsync -auv fs/~/ ~
-sudo rsync -auv --no-owner --no-group fs/etc/ /etc
-sudo rsync -auv --no-owner --no-group fs/opt/ /opt
-sudo rsync -auv --no-owner --no-group fs/usr/ /usr
+if [ "$TARGET" == "" ]; then
+    echo "install what? packages, files, templates, custom-packages or all?"
+    exit 1
+fi
 
-# install templates
-for file in `find templates -type f`; do
-    dest=`echo $file | sed 's/templates\///g'`;
-    if [ "${dest:0:1}" = "~" ]; then
-        dest="$HOME/$(echo $dest | sed 's/~\///')"
-    else
-        dest="/$dest";
-    fi
+if [ "$TARGET" == "all" -o "$TARGET" == "packages" ]; then
+    # install packages
+    sudo pacman --needed -S $(cat packages/official)
+fi
 
-    echo Installing template $file to $dest
+if [ "$TARGET" == "all" -o "$TARGET" == "files" ]; then
+    # copy files
+    sudo rsync -auv fs/~/ ~
+    sudo rsync -auv --no-owner --no-group fs/etc/ /etc
+    sudo rsync -auv --no-owner --no-group fs/opt/ /opt
+    sudo rsync -auv --no-owner --no-group fs/usr/ /usr
+fi
+
+
+if [ "$TARGET" == "all" -o "$TARGET" == "templates" ]; then
+    # install templates
+    for file in `find templates -type f`; do
+        dest=`echo $file | sed 's/templates\///g'`;
+        if [ "${dest:0:1}" = "~" ]; then
+            dest="$HOME/$(echo $dest | sed 's/~\///')"
+        else
+            dest="/$dest";
+        fi
+
+        echo Installing template $file to $dest
     
-    sudo mkdir -pv `dirname $dest`
-    sudo -E generate-config "$file" "$dest"
-done
+        sudo mkdir -pv `dirname $dest`
+        sudo -E generate-config "$file" "$dest"
+    done
+fi
 
-# install software not in pacman repos
-/opt/scripts/install-chrome
+if [ "$TARGET" == "all" -o "$TARGET" == "custom-packages" ]; then
+    # install software not in pacman repos
+    /opt/scripts/install-chrome
+fi
