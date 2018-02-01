@@ -179,7 +179,7 @@ exec --no-startup-id ~/.config/i3/startup
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks | grep Sink | head -n 1 | sed 's/Sink #//') +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks | grep Sink | head -n 1 | sed 's/Sink #//') -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl list sinks | grep Sink | head -n 1 | sed 's/Sink #//') toggle
 
 # Screenshots
 bindsym Print exec --no-startup-id screenshot
