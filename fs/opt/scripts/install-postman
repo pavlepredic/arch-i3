@@ -1,0 +1,28 @@
+#!/bin/bash
+
+TMP_DIR=$(mktemp -d)
+UNINSTALL_ONLY=0
+if [ "$1" == "-u" ]; then
+    UNINSTALL_ONLY=1;
+fi
+
+echo Uninstalling Postman
+sudo rm -vrf /opt/postman 2>/dev/null
+echo Done
+
+if [ $UNINSTALL_ONLY == 1 ]; then
+    exit 0;
+fi
+
+echo Installing postman
+pushd `pwd` > /dev/null
+cd "$TMP_DIR"
+
+curl https://dl.pstmn.io/download/latest/linux64 --output postman.tar.gz
+tar xzf postman.tar.gz
+sudo mv Postman /opt/postman
+
+popd > /dev/null
+rm -rf "$TMP_DIR"
+
+echo Done

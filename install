@@ -45,4 +45,5 @@ fi
 if [ "$TARGET" == "all" -o "$TARGET" == "custom-packages" ]; then
     # install software not in pacman repos
     /opt/scripts/install-chrome
+    /opt/scripts/install-postman
 fi
