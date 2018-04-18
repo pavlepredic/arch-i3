@@ -2,6 +2,7 @@ alsa-utils
 ansible
 autoconf
 automake
+bind-tools
 binutils
 bison
 calc
@@ -14,6 +15,7 @@ docker
 docker-compose
 dosfstools
 dvd+rw-tools
+eclipse-java
 exfat-utils
 fakeroot
 firefox
@@ -23,6 +25,7 @@ gcc
 gimp
 git
 gnome-keyring
+gnu-netcat
 gsimplecal
 gtk3
 i3-wm
@@ -31,6 +34,7 @@ i3status
 imv
 intel-ucode
 iw
+jre8-openjdk
 keepassx2
 libid3tag
 libmad
@@ -39,6 +43,7 @@ linux-headers
 lsof
 m4
 make
+maven
 meld
 mesa
 mlocate
@@ -52,11 +57,14 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 ntfs-3g
+ntp
 numlockx
+openjdk8-src
 openssh
 openvpn
 pamixer
 patch
+pgadmin3
 pkg-config
 powertop
 pulseaudio
