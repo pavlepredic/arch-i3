@@ -1,2 +1,5 @@
 keysym XF86Back = 
 keysym XF86Forward =
+keycode 100 = space
+keycode 102 = space
+keycode 132 = BackSpace
